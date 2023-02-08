@@ -27,7 +27,7 @@ def get_status():
 @app.put("/turn_light_button")
 def turn_light_button(room_id: int, status: Union[bool, None] = None):
     if all_light_bulb[room_id].mode == 1: # auto mode cant manually use to button
-        return {}
+        return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
     if status is None:
         if all_light_bulb[room_id].status == False:
             all_light_bulb[room_id].status = True
