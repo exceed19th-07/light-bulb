@@ -27,7 +27,7 @@ def get_status():
 @app.put("/turn_light_button")
 def turn_light_button(room_id: int, status: Union[bool, None] = None):
     if all_light_bulb[room_id].mode == 1: # auto mode cant manually use to button
-        return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
+        return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "intensity": all_light_bulb[room_id].intensity}
     if status is None:
         if all_light_bulb[room_id].status == False:
             all_light_bulb[room_id].status = True
@@ -35,7 +35,7 @@ def turn_light_button(room_id: int, status: Union[bool, None] = None):
             all_light_bulb[room_id].status = False
     else:
         all_light_bulb[room_id].status = status
-    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
+    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "intensity": all_light_bulb[room_id].intensity}
 
 @app.put("/turn_light_sensor")
 def turn_light_sensor(room_id: int, status: Union[bool, None] = None):
@@ -46,7 +46,7 @@ def turn_light_sensor(room_id: int, status: Union[bool, None] = None):
             all_light_bulb[room_id].status = False
     else:
         all_light_bulb[room_id].status = status
-    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
+    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "intensity": all_light_bulb[room_id].intensity}
 
 @app.put("/change_mode")
 def change_mode(room_id: int, mode: Union[int, None] = None):
@@ -57,9 +57,9 @@ def change_mode(room_id: int, mode: Union[int, None] = None):
             all_light_bulb[room_id].mode = 0
     else:
         all_light_bulb[room_id].mode = mode
-    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
+    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "intensity": all_light_bulb[room_id].intensity}
 
 @app.put("/change_intensity")
 def change_intensity(room_id: int, intensity: int):
     all_light_bulb[room_id].intensity = intensity
-    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "inden": all_light_bulb[room_id].intensity}
+    return {"room_id": all_light_bulb[room_id].room_id, "status": all_light_bulb[room_id].status, "mode": all_light_bulb[room_id].mode, "intensity": all_light_bulb[room_id].intensity}
