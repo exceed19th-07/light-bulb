@@ -6,14 +6,13 @@ class LightBulb:
     def __init__(self, room_id : int, mode: int, status: bool, intensity: int):
         self.room_id = room_id
         self.mode = mode # 0 = manual, 1 = auto
-        self.status = status # 0 = off, 1 = on
+        self.status = status # false = off, true = on
         self.intensity = intensity
 
 all_light_bulb = []
 for i in range(3):
     temp = LightBulb(i,0,False,100)
     all_light_bulb.append(temp)
-
 
 app = FastAPI()
 
